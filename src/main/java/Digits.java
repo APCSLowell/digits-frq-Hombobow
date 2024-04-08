@@ -7,36 +7,24 @@ public class Digits
 
 	public Digits(int num)
 	{ /* to be implemented in part (a) */ 
-		int count = 0;
-		ArrayList <Integer> nd = new ArrayList <Integer>();
-		while (num /10 > 10) {
-			nd.add(new Interger(num % 10));
+		digitList = new ArrayList<Integer>();
+		if (num == 0) {
+			digitList.add(new Integer(0));
+		}
+		while (num > 0) {
+			digitList.add(new Integer(num % 10));
 			num /= 10;
 		}
-		nd.add(new Integer(num));
-		for (int i = nd.length; i >= 0; i++) {
-			digitList.add(nd.get(i));
-		}
-		
 	}
 
 	public boolean isStrictlyIncreasing()
 	{ /* to be implemented in part (b) */
-		boolean y = false;
-		int min = digitList.get(0);
-		for (int i = 0; i < digitList.size(); i++) {
-			if (digitList.get(i) < min) {
-				y = true;
+		for (int i = 0; i < digitList.size() - 1; i++) {
+			if (digitList.get(i) > digitList.get(i+1)) {
+				return false;
 			}
-			else {
-				min = digitList.get(i);
-			}
-		}
-		if (y) {
-			return false;
 		}
 		return true;
-		
 	}
 	
 	public String toString()
