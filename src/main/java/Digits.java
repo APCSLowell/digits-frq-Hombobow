@@ -10,10 +10,10 @@ public class Digits
 		int count = 0;
 		ArrayList <Integer> nd = new ArrayList <Integer>();
 		while (num /10 > 10) {
-			nd.add(num % 10);
+			nd.add(new Interger(num % 10));
 			num /= 10;
 		}
-		nd.add(num);
+		nd.add(new Integer(num));
 		for (int i = nd.length; i >= 0; i++) {
 			digitList.add(nd.get(i));
 		}
